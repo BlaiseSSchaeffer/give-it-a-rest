@@ -4,6 +4,7 @@ plugins {
     id 'war'
     id 'com.gradle.build-scan' version '1.16'
     id 'checkstyle'
+    id 'findbugs'
 }
 
 group 'give-it-a-rest'
@@ -30,6 +31,13 @@ dependencies {
 }
 
 tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+tasks.withType(FindBugs) {
     reports {
         xml.enabled false
         html.enabled true
